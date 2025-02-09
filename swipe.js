@@ -1,41 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        document.getElementById("loading-screen").style.display = "none";
-        document.getElementById("onboarding-container").style.display = "block";
-    }, 2000);
-});
-
 let currentSlide = 0;
-const slides = document.querySelectorAll(".onboarding-slide");
+const slides = document.querySelector(".onboarding-wrapper");
+const dots = document.querySelectorAll(".dot");
 
-document.addEventListener("touchstart", handleTouchStart, false);
-document.addEventListener("touchmove", handleTouchMove, false);
-
-let xStart = null;
-
-function handleTouchStart(event) {
-    xStart = event.touches[0].clientX;
+function updateDots() {
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+    });
 }
 
-function handleTouchMove(event) {
-    if (!xStart) return;
-
-    const xEnd = event.touches[0].clientX;
-    const xDiff = xStart - xEnd;
-
-    if (xDiff > 50) {
-        goToNextSlide();
-    }
-
-    xStart = null;
-}
-
-function goToNextSlide() {
-    if (currentSlide < slides.length - 1) {
-        slides[currentSlide].style.transform = `translateX(-100%)`;
+function nextSlide() {
+    if (currentSlide < 2) {
         currentSlide++;
-    } else {
-        document.getElementById("onboarding-container").style.display = "none";
-        document.getElementById("login-container").style.display = "block";
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        updateDots();
     }
 }
