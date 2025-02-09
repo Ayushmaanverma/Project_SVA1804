@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         setTimeout(() => {
             document.getElementById("welcome-screen").style.display = "none";
-            document.getElementById("onboarding-container").style.display = "flex";
+            document.getElementById("onboarding-container").style.display = "block";
         }, 2000);
         
     }, 2000);
