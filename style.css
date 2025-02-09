@@ -1,10 +1,10 @@
 /* General Reset */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #fffaf0;
 }
 
 /* Loading Screen */
@@ -19,7 +19,7 @@ body {
 .spinner {
     width: 40px;
     height: 40px;
-    border: 5px solid #007bff;
+    border: 5px solid #ff6600;
     border-top: 5px solid transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -29,23 +29,41 @@ body {
     100% { transform: rotate(360deg); }
 }
 
+/* Welcome Screen */
+#welcome-screen {
+    display: none;
+    background-color: #ff6600;
+    color: white;
+    padding: 30px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.welcome-icon {
+    width: 80px;
+    margin: auto;
+}
+
 /* Onboarding */
 #onboarding-container {
-    display: flex;
+    display: none;
     overflow: hidden;
     width: 100%;
     height: 100vh;
+    background: white;
 }
 .onboarding-slide {
     min-width: 100%;
     transition: transform 0.5s ease-in-out;
 }
 .onboarding-slide img {
-    width: 80%;
+    width: 50%;
     margin: 20px auto;
 }
 .onboarding-slide p {
     font-size: 18px;
+    color: #333;
 }
 
 /* Login Page */
@@ -56,20 +74,27 @@ body {
 #auth-container {
     display: none;
 }
+
+/* Buttons */
 button {
     display: block;
     width: 80%;
     padding: 12px;
     margin: 10px auto;
     border: none;
-    background-color: #007bff;
+    background-color: #ff6600;
     color: white;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #e65c00;
+}
+.google-btn, .otp-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 .hidden {
     display: none !important;
