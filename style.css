@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fffaf0;
+    overflow: hidden;
 }
 
 /* Loading Screen */
@@ -52,18 +53,30 @@ body {
     width: 100%;
     height: 100vh;
     background: white;
+    white-space: nowrap;
 }
 .onboarding-slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    text-align: center;
 }
 .onboarding-slide img {
-    width: 50%;
-    margin: 20px auto;
+    width: 60%;
+    margin-top: 30px;
+}
+.onboarding-slide h2 {
+    color: #ff6600;
 }
 .onboarding-slide p {
     font-size: 18px;
     color: #333;
+}
+.swipe-indicator {
+    display: block;
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
 }
 
 /* Login Page */
