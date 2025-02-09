@@ -1,32 +1,36 @@
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.getElementById("loading-screen").style.display = "none";
+        document.getElementById("welcome-screen").style.display = "flex";
+        
+        setTimeout(() => {
+            document.getElementById("welcome-screen").style.display = "none";
+            document.getElementById("onboarding-container").style.display = "flex";
+        }, 2000);
+        
+    }, 2000);
+});
 
-// Fake Vendor Data (Replace with Firebase Firestore later)
-const vendors = [
-    { name: "Chai Stall", phone: "919876543210", item: "Masala Chai - ₹10" },
-    { name: "Pani Puri", phone: "919876543211", item: "Pani Puri - ₹20" },
-    { name: "Momos Wala", phone: "919876543212", item: "Veg Momos - ₹50" }
-];
+let currentSlide = 0;
+const slides = document.querySelectorAll(".onboarding-slide");
 
-// Load vendors after login
-function loadVendors() {
-    const vendorList = document.getElementById("vendors");
-    vendorList.innerHTML = "";
+document.addEventListener("click", () => {
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides();
+    } else {
+        document.getElementById("onboarding-container").style.display = "none";
+        document.getElementById("login-container").style.display = "block";
+    }
+});
 
-    vendors.forEach(vendor => {
-        const li = document.createElement("li");
-        li.className = "vendor-item";
-        li.innerHTML = `
-            <strong>${vendor.name}</strong> <br>
-            ${vendor.item} <br>
-            <button onclick="placeOrder('${vendor.phone}', '${vendor.item}')">Order on WhatsApp</button>
-        `;
-        vendorList.appendChild(li);
+function updateSlides() {
+    slides.forEach((slide, index) => {
+        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
     });
 }
 
-// WhatsApp Order Integration
-function placeOrder(vendorNumber, itemName) {
-    const message = `New Order! %0AItem: ${itemName}`;
-    const whatsappURL = `https://wa.me/${vendorNumber}?text=${message}`;
-    
-    window.open(whatsappURL, "_blank"); // Open WhatsApp chat
+function startSignUp() {
+    document.getElementById("login-container").style.display = "none";
+    document.getElementById("auth-container").style.display = "block";
 }
