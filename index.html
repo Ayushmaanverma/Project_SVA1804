@@ -15,22 +15,28 @@
 
     <!-- Onboarding Screens -->
     <div id="onboarding-container">
-        <div class="onboarding-slide">
-            <img src="https://cdn-icons-png.flaticon.com/512/1643/1643352.png" alt="Fresh & Hygienic">
-            <h2>Fresh & Hygienic</h2>
-            <p>We ensure your street food is fresh, clean, and tasty!</p>
-            <span class="swipe-hint">← Swipe Left</span>
+        <div class="onboarding-wrapper">
+            <div class="onboarding-slide">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046871.png" alt="Find Restaurant">
+                <h2>Find Restaurants Near You</h2>
+                <p>Discover street food vendors around you with ease.</p>
+            </div>
+            <div class="onboarding-slide">
+                <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Order Food">
+                <h2>Order Your Favorite Food</h2>
+                <p>Quick and hassle-free ordering from trusted vendors.</p>
+            </div>
+            <div class="onboarding-slide">
+                <img src="https://cdn-icons-png.flaticon.com/512/2331/2331970.png" alt="Fast Delivery">
+                <h2>Fast Delivery</h2>
+                <p>Get your food delivered in no time!</p>
+                <button onclick="goToLogin()">Get Started</button>
+            </div>
         </div>
-        <div class="onboarding-slide">
-            <img src="https://cdn-icons-png.flaticon.com/512/8834/8834189.png" alt="Affordable Prices">
-            <h2>Affordable Prices</h2>
-            <p>Enjoy street food at the lowest price, straight from vendors!</p>
-            <span class="swipe-hint">← Swipe Left</span>
-        </div>
-        <div class="onboarding-slide">
-            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Easy Ordering">
-            <h2>Order in One Tap</h2>
-            <p>Seamless ordering experience with just a tap!</p>
+        <div class="pagination-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </div>
 
@@ -38,13 +44,22 @@
     <div id="login-container" class="hidden">
         <h1>Welcome to Street Food Order</h1>
         <p>Order from local street vendors at great prices.</p>
-        <button onclick="goToHome()">Get Started</button>
+        <button class="primary-btn" onclick="goToHome()">Continue</button>
     </div>
 
     <!-- Homepage -->
     <div id="home-container" class="hidden">
         <h1>Nearby Street Vendors</h1>
         <div id="vendor-list"></div>
+    </div>
+
+    <!-- Vendor Details -->
+    <div id="vendor-details" class="hidden">
+        <button class="back-btn" onclick="backToHome()">← Back</button>
+        <h1 id="vendor-name"></h1>
+        <p id="vendor-description"></p>
+        <h2>Menu</h2>
+        <ul id="vendor-menu"></ul>
     </div>
 
     <script src="swipe.js"></script>
