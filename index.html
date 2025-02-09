@@ -9,6 +9,7 @@
 
     <!-- Loading Screen -->
     <div id="loading-screen">
+        <img src="https://cdn-icons-png.flaticon.com/512/4159/4159965.png" alt="Logo" class="loading-logo">
         <div class="spinner"></div>
     </div>
 
@@ -35,20 +36,22 @@
     <div id="login-container">
         <h1>Welcome to Street Food Order</h1>
         <p>Order from local street vendors at great prices.</p>
-        <button onclick="startSignUp()">Get Started</button>
+        <button onclick="goToHome()">Get Started</button>
     </div>
 
-    <!-- Sign-In Options -->
-    <div id="auth-container" class="hidden">
-        <h2>Sign Up / Login</h2>
-        <button class="google-btn" onclick="loginWithGoogle()">
-            <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Logo">
-            Sign in with Google
-        </button>
-        <button class="otp-btn" onclick="loginWithOTP()">
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
-            Sign in with Phone OTP
-        </button>
+    <!-- Homepage -->
+    <div id="home-container" class="hidden">
+        <h1>Nearby Street Vendors</h1>
+        <div id="vendor-list"></div>
+    </div>
+
+    <!-- Vendor Details -->
+    <div id="vendor-details" class="hidden">
+        <button class="back-btn" onclick="backToHome()">← Back</button>
+        <h1 id="vendor-name"></h1>
+        <p id="vendor-description"></p>
+        <h2>Menu</h2>
+        <ul id="vendor-menu"></ul>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
