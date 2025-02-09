@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
 });
 
-// Swipe Functionality for Onboarding
+// Swipe Functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll(".onboarding-slide");
 const onboardingContainer = document.getElementById("onboarding-container");
@@ -43,7 +43,5 @@ function nextSlide() {
 }
 
 function updateSlides() {
-    slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
-    });
+    onboardingContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
