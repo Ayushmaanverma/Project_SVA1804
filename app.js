@@ -1,9 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        document.getElementById("loading-screen").style.display = "none";
-        document.getElementById("onboarding-container").style.display = "flex";
-    }, 2000);
-});
+function goToLogin() {
+    document.getElementById("onboarding-container").style.display = "none";
+    document.getElementById("login-container").style.display = "block";
+}
 
 function goToHome() {
     document.getElementById("login-container").style.display = "none";
@@ -12,59 +10,23 @@ function goToHome() {
 }
 
 const vendors = [
-    {
-        name: "Chai Wala",
-        description: "Best masala chai in town!",
-        image: "https://source.unsplash.com/400x250/?tea",
-        menu: ["Masala Chai - ₹10", "Ginger Chai - ₹15", "Lemon Tea - ₹20"]
-    },
-    {
-        name: "Pani Puri Stall",
-        description: "Crispy and spicy Pani Puri.",
-        image: "https://source.unsplash.com/400x250/?panipuri",
-        menu: ["Pani Puri - ₹30", "Dahi Puri - ₹40", "Sev Puri - ₹35"]
-    },
-    {
-        name: "Momos Corner",
-        description: "Delicious steamed and fried momos.",
-        image: "https://source.unsplash.com/400x250/?momos",
-        menu: ["Veg Momos - ₹50", "Paneer Momos - ₹60", "Chicken Momos - ₹70"]
-    }
+    { name: "Chai Wala", description: "Best masala chai!", menu: ["Masala Chai - ₹10", "Lemon Tea - ₹20"] },
+    { name: "Pani Puri Stall", description: "Crispy & spicy!", menu: ["Pani Puri - ₹30", "Dahi Puri - ₹40"] }
 ];
 
 function loadVendors() {
     const vendorList = document.getElementById("vendor-list");
-    vendorList.innerHTML = "";
-    vendors.forEach((vendor, index) => {
-        const vendorCard = document.createElement("div");
-        vendorCard.classList.add("vendor-card");
-        vendorCard.innerHTML = `
-            <img src="${vendor.image}" alt="${vendor.name}">
-            <h2>${vendor.name}</h2>
-            <p>${vendor.description}</p>
-        `;
-        vendorCard.onclick = () => openVendor(index);
-        vendorList.appendChild(vendorCard);
-    });
+    vendorList.innerHTML = vendors.map((v, i) => `<div class="vendor-card" onclick="openVendor(${i})"><h2>${v.name}</h2></div>`).join("");
 }
 
 function openVendor(index) {
     const vendor = vendors[index];
-    document.getElementById("home-container").style.display = "none";
-    document.getElementById("vendor-details").style.display = "block";
     document.getElementById("vendor-name").innerText = vendor.name;
     document.getElementById("vendor-description").innerText = vendor.description;
-    
-    const menuList = document.getElementById("vendor-menu");
-    menuList.innerHTML = "";
-    vendor.menu.forEach(item => {
-        const li = document.createElement("li");
-        li.innerText = item;
-        menuList.appendChild(li);
-    });
+    document.getElementById("vendor-menu").innerHTML = vendor.menu.map(item => `<li>${item}</li>`).join("");
+    document.getElementById("vendor-details").style.display = "block";
 }
 
-function backToHome() {
-    document.getElementById("vendor-details").style.display = "none";
-    document.getElementById("home-container").style.display = "block";
+function placeOrder() {
+    window.location.href = "https://wa.me/917007383638";
 }
