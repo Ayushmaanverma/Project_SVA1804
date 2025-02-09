@@ -1,18 +1,61 @@
-<!-- Onboarding Screens -->
-<div id="onboarding-container">
-    <div class="onboarding-slide">
-        <img src="https://cdn-icons-png.flaticon.com/512/1643/1643352.png" alt="Fresh & Hygienic">
-        <h2>Fresh & Hygienic</h2>
-        <p>We ensure your street food is fresh, clean, and tasty!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Street Food Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
     </div>
-    <div class="onboarding-slide">
-        <img src="https://cdn-icons-png.flaticon.com/512/8834/8834189.png" alt="Affordable Prices">
-        <h2>Affordable Prices</h2>
-        <p>Enjoy street food at the lowest price, straight from vendors!</p>
+
+    <!-- Onboarding Screens -->
+    <div id="onboarding-container">
+        <div class="onboarding-slide">
+            <img src="https://cdn-icons-png.flaticon.com/512/1643/1643352.png" alt="Fresh & Hygienic">
+            <h2>Fresh & Hygienic</h2>
+            <p>We ensure your street food is fresh, clean, and tasty!</p>
+        </div>
+        <div class="onboarding-slide">
+            <img src="https://cdn-icons-png.flaticon.com/512/8834/8834189.png" alt="Affordable Prices">
+            <h2>Affordable Prices</h2>
+            <p>Enjoy street food at the lowest price, straight from vendors!</p>
+        </div>
+        <div class="onboarding-slide">
+            <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Easy Ordering">
+            <h2>Order in One Tap</h2>
+            <p>Seamless ordering experience with just a tap!</p>
+        </div>
     </div>
-    <div class="onboarding-slide">
-        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Easy Ordering">
-        <h2>Order in One Tap</h2>
-        <p>Seamless ordering experience with just a tap!</p>
+
+    <!-- Login Page -->
+    <div id="login-container">
+        <h1>Welcome to Street Food Order</h1>
+        <p>Order from local street vendors at great prices.</p>
+        <button onclick="startSignUp()">Get Started</button>
     </div>
-</div>
+
+    <!-- Sign-In Options -->
+    <div id="auth-container" class="hidden">
+        <h2>Sign Up / Login</h2>
+        <button class="google-btn" onclick="loginWithGoogle()">
+            <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Logo">
+            Sign in with Google
+        </button>
+        <button class="otp-btn" onclick="loginWithOTP()">
+            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
+            Sign in with Phone OTP
+        </button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="firebase.js"></script>
+    <script src="swipe.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
