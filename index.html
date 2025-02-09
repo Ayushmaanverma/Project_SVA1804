@@ -4,35 +4,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Street Food Order</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Redirect desktop users
-        if (window.innerWidth > 768) {
-            document.body.innerHTML = "<h2>Please visit this site from a mobile device.</h2>";
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Street Food Order</h1>
 
-        <!-- Login Buttons -->
-        <div id="auth-section">
-            <button onclick="loginWithGoogle()">Login with Google</button>
-            <button onclick="loginWithOTP()">Login with Phone OTP</button>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Onboarding Screens -->
+    <div id="onboarding-container">
+        <div class="onboarding-slide">
+            <img src="assets/food1.png" alt="Food Delivery">
+            <p>Order fresh street food from local vendors!</p>
         </div>
-
-        <!-- Vendor List -->
-        <div id="vendorList">
-            <h2>Nearby Vendors</h2>
-            <ul id="vendors"></ul>
+        <div class="onboarding-slide">
+            <img src="assets/food2.png" alt="Affordable">
+            <p>Get tasty food at affordable prices!</p>
         </div>
+        <div class="onboarding-slide">
+            <img src="assets/food3.png" alt="Easy Ordering">
+            <p>Place your order in one tap & pay on delivery!</p>
+        </div>
+    </div>
 
-        <div id="recaptcha-container"></div>
+    <!-- Login Page -->
+    <div id="login-container">
+        <h1>Welcome to Street Food Order</h1>
+        <p>Order from local street vendors at great prices.</p>
+        <button onclick="startSignUp()">Get Started</button>
+    </div>
+
+    <!-- Sign-In Options -->
+    <div id="auth-container" class="hidden">
+        <h2>Sign Up / Login</h2>
+        <button onclick="loginWithGoogle()">Sign in with Google</button>
+        <button onclick="loginWithOTP()">Sign in with Phone OTP</button>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script src="firebase.js"></script>
+    <script src="onboarding.js"></script>
     <script src="app.js"></script>
+
 </body>
 </html>
