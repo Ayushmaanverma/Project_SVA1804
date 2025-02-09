@@ -43,7 +43,5 @@ function nextSlide() {
 }
 
 function updateSlides() {
-    slides.forEach((slide, index) => {
-        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
-    });
+    onboardingContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
