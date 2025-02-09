@@ -19,11 +19,13 @@
             <img src="https://cdn-icons-png.flaticon.com/512/1643/1643352.png" alt="Fresh & Hygienic">
             <h2>Fresh & Hygienic</h2>
             <p>We ensure your street food is fresh, clean, and tasty!</p>
+            <span class="swipe-hint">← Swipe Left</span>
         </div>
         <div class="onboarding-slide">
             <img src="https://cdn-icons-png.flaticon.com/512/8834/8834189.png" alt="Affordable Prices">
             <h2>Affordable Prices</h2>
             <p>Enjoy street food at the lowest price, straight from vendors!</p>
+            <span class="swipe-hint">← Swipe Left</span>
         </div>
         <div class="onboarding-slide">
             <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" alt="Easy Ordering">
@@ -33,7 +35,7 @@
     </div>
 
     <!-- Login Page -->
-    <div id="login-container">
+    <div id="login-container" class="hidden">
         <h1>Welcome to Street Food Order</h1>
         <p>Order from local street vendors at great prices.</p>
         <button onclick="goToHome()">Get Started</button>
@@ -45,20 +47,7 @@
         <div id="vendor-list"></div>
     </div>
 
-    <!-- Vendor Details -->
-    <div id="vendor-details" class="hidden">
-        <button class="back-btn" onclick="backToHome()">← Back</button>
-        <h1 id="vendor-name"></h1>
-        <p id="vendor-description"></p>
-        <h2>Menu</h2>
-        <ul id="vendor-menu"></ul>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="firebase.js"></script>
     <script src="swipe.js"></script>
     <script src="app.js"></script>
-
 </body>
 </html>
