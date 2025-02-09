@@ -1,47 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
-        document.getElementById("onboarding-container").style.display = "flex";
+        document.getElementById("onboarding-container").style.display = "block";
     }, 2000);
 });
 
-// Swipe Functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll(".onboarding-slide");
-const onboardingContainer = document.getElementById("onboarding-container");
 
-onboardingContainer.addEventListener("touchstart", handleTouchStart, false);
-onboardingContainer.addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
 
 let xStart = null;
 
 function handleTouchStart(event) {
-    const firstTouch = event.touches[0];
-    xStart = firstTouch.clientX;
+    xStart = event.touches[0].clientX;
 }
 
 function handleTouchMove(event) {
     if (!xStart) return;
-    
-    let xEnd = event.touches[0].clientX;
-    let xDiff = xStart - xEnd;
 
-    if (xDiff > 50) {  // Swipe left
-        nextSlide();
+    const xEnd = event.touches[0].clientX;
+    const xDiff = xStart - xEnd;
+
+    if (xDiff > 50) {
+        goToNextSlide();
     }
+
     xStart = null;
 }
 
-function nextSlide() {
+function goToNextSlide() {
     if (currentSlide < slides.length - 1) {
+        slides[currentSlide].style.transform = `translateX(-100%)`;
         currentSlide++;
-        updateSlides();
     } else {
         document.getElementById("onboarding-container").style.display = "none";
         document.getElementById("login-container").style.display = "block";
     }
-}
-
-function updateSlides() {
-    onboardingContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
