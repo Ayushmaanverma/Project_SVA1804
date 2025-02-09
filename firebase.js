@@ -1,4 +1,3 @@
-
 const firebaseConfig = {
     apiKey: "YOUR-API-KEY",
     authDomain: "YOUR-PROJECT.firebaseapp.com",
@@ -12,19 +11,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// Google Sign-In
 function loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
         .then(result => {
-            console.log("Logged in:", result.user);
             alert(`Welcome, ${result.user.displayName}!`);
-            loadVendors();
+            window.location.href = "home.html"; // Redirect after login
         })
         .catch(error => console.error(error));
 }
 
-// Phone OTP Login
 function loginWithOTP() {
     const phoneNumber = prompt("Enter your phone number:");
     const appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
@@ -35,9 +31,8 @@ function loginWithOTP() {
             return confirmationResult.confirm(otp);
         })
         .then(user => {
-            console.log("Logged in:", user);
             alert("Login successful!");
-            loadVendors();
+            window.location.href = "home.html";
         })
         .catch(error => console.error(error));
 }
